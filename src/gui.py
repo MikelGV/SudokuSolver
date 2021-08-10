@@ -1,3 +1,4 @@
+#  ERROR SOLVED
 import pygame
 import time
 
@@ -128,7 +129,7 @@ class Grid:
         for r in range(1, 10):
             if valid(self.model, r, (row, col)):
                 self.model[row][col] = r
-                self.cubes[row][col].set(i)
+                self.cubes[row][col].set(r)
                 self.cubes[row][col].draw_change(self.win, True)
                 self.update_model()
                 pygame.display.update()
