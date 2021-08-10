@@ -201,24 +201,24 @@ class Cube:
         self.temp = val
 
 
-def find_empty(bo):
-    for r in range(len(bo)):
-        for c in range(len(bo[0])):
-            if bo[r][c] == 0:
+def find_empty(puzzle):
+    for r in range(len(puzzle)):
+        for c in range(len(puzzle[0])):
+            if puzzle[r][c] == 0:
                 return r, c  # row, col
 
     return None
 
 
-def valid(bo, num, pos):
+def valid(puzzle, num, pos):
     # Check row
-    for r in range(len(bo[0])):
-        if bo[pos[0]][r] == num and pos[1] != r:
+    for r in range(len(puzzle[0])):
+        if puzzle[pos[0]][r] == num and pos[1] != r:
             return False
 
     # Check column
-    for r in range(len(bo)):
-        if bo[r][pos[1]] == num and pos[0] != r:
+    for r in range(len(puzzle)):
+        if puzzle[r][pos[1]] == num and pos[0] != r:
             return False
 
     # Check box
@@ -227,7 +227,7 @@ def valid(bo, num, pos):
 
     for r in range(box_y * 3, box_y * 3 + 3):
         for c in range(box_x * 3, box_x * 3 + 3):
-            if bo[r][c] == num and (r, c) != pos:
+            if puzzle[r][c] == num and (r, c) != pos:
                 return False
 
     return True
